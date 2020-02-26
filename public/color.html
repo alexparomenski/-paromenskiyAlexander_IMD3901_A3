@@ -6,6 +6,12 @@
     <body>
         <h1>This is the color client</h1>
 
+        <!-- A frame library-->
+        <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+
+         <!-- a nice script for setting up an environment for better spatial awareness : https://github.com/supermedium/aframe-environment-component -->
+        <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+        <!--socket library-->
         <script src="/socket.io/socket.io.js"></script>
         <script>
             let socket = io();
@@ -16,6 +22,7 @@
             });
 
             socket.on('color_change', function(data) {
+                console.log("hello");
                 //create rgb color string for css
                 let colorStr = 'rgb(' + data.r + ',' + data.g + ',' + data.b + ')';
                 console.log("color received: " + colorStr);
@@ -23,6 +30,8 @@
                 //set background color with received color
                 document.body.style.backgroundColor = colorStr;
             });
+
+            
         </script>
     </body>
 </html>

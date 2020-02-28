@@ -23,7 +23,7 @@ AFRAME.registerComponent( 'button_component',{
         //console.log(Context_AF.el.object3D.position);
         let Magnitude = Context_AF.findMagnitude();
         let Magnitude2 = Context_AF.findMagnitude2();
-        if(Magnitude < 1.6 || Magnitude2 <1.6){
+        if(Magnitude < 1.8 || Magnitude2 <1.8){
             if(doorOpened == false){
                 console.log("Player 1 or player 2 is on the button");
                 Context_AF.openDoor();

@@ -14,6 +14,7 @@
 
        <!--socket library-->
        <script src="/socket.io/socket.io.js"></script>
+      
     </head>
     <body>
         
@@ -29,19 +30,19 @@
         <!-- see here for more information: http://www.unm.edu/~tbeach/IT145/color.html -->
         <!--arcade music-->
         <audio id="arcade_music" src="https://cdn.glitch.com/b1457c80-9867-4fd9-8c15-a340b035f226%2FRadical%20Heights%2C%20Match%20start%20Skydive%20music.%20Enjoy%20And%20Sub!.mp3?v=1580002979464" preload="auto" crossorigin="anonymous"></audio>
-        <a-entity sound="src:#arcade_music; autoplay:true; positional:false; volume: 0.01;"></a-entity>
+        <a-entity sound="src:#arcade_music; autoplay:true; positional:false; volume: 0.00;"></a-entity>
 
         <!-- player model-->
         <a-asset-item crossorigin="anonymous" id="player-obj" src="/assets/models/character.obj"></a-asset-item>
         <img crossorigin="anonymous" id="player1texture" src="/assets/textures/character1.png">
         <img crossorigin="anonymous" id="player2texture" src="/assets/textures/character2.png">
-        
+
         <a-entity 
                   environment="preset: contact;">
         </a-entity>
         <a-entity id = "camera" 
-              camera look-controls 
-              position = "-2 1.5 2" >
+              camera look-controls  
+              position = "2 1.5 2" >
                   <a-entity cursor= "rayOrigin:mouse;"
                         position="0 0 -1"
                         raycaster = "far:3; interval:100; objects:.clickable;">
@@ -53,8 +54,8 @@
         <a-entity  id = "player"
                 scale = "0.3 0.3 0.3"
                 obj-model="obj: #player-obj;"
-                material = "src: #player1texture;"
-                position="0 -0.2 0"
+                material = "src: #player2texture;"
+                position="0 0 0"
                 player_component = ""
                 kinematic-body>
         </a-entity>
@@ -62,8 +63,8 @@
         <a-entity  id = "player2"
                 scale = "0.3 0.3 0.3"
                 obj-model="obj: #player-obj;"
-                material = "src: #player2texture;"
-                position="0 -0.2 0"
+                material = "src: #player1texture;"
+                position="0 0 0"
                 player_component = ""
                 kinematic-body>
         </a-entity>
@@ -103,78 +104,78 @@
                 geometry="primitive:plane; width:10.0; height:10.0;" 
                 material="color:rgb(254,231,226); opacity: 0.3; transparent: true;">        </a-entity>
 
-        <a-entity id="target_1" 
-                  class = "hitable"
-                  static-body
-                  position = "4 10 -8"
-                  rotation = "0 0 0"
-                  scale = "0.1 0.1 0.1"
-                  geometry="primitive:plane; width:10.0; height:10.0;" 
-                  animation =   "property:position;  from: 4 10 -8;  to:-4 10 -8;  dur:2000; easing:easeInOutSine; loop:true; dir:alternate;"
-                  animation__2="property:rotation; to:0 0 360; loop:true; dur:6000; easing:linear;"
-                  sound="src: url(https://cdn.glitch.com/78ee6428-e6d9-48ff-9e15-4c0952abe21f%2FAnvil%20Drop%20(AnimeCartoon%20Sound)%20-%20Sound%20Effect%20for%20editing.mp3?v=1582853971398); volume: 1;"
-                  material="color:red;">
-        </a-entity>
+                <a-entity id="target_1" 
+                class = "hitable"
+                static-body
+                position = "4 10 -8"
+                rotation = "0 0 0"
+                scale = "0.1 0.1 0.1"
+                geometry="primitive:plane; width:10.0; height:10.0;" 
+                animation =   "property:position;  from: 4 10 -8;  to:-4 10 -8;  dur:2000; easing:easeInOutSine; loop:true; dir:alternate;"
+                animation__2="property:rotation; to:0 0 360; loop:true; dur:6000; easing:linear;"
+                sound="src: url(https://cdn.glitch.com/78ee6428-e6d9-48ff-9e15-4c0952abe21f%2FAnvil%20Drop%20(AnimeCartoon%20Sound)%20-%20Sound%20Effect%20for%20editing.mp3?v=1582853971398);"
+                material="color:red;">
+      </a-entity>
 
-        <a-entity id="target_2" 
-                  class = "hitable"
-                  static-body
-                  position = "-4 6 -8"
-                  rotation = "0 0 0"
-                  scale = "0.1 0.1 0.1"
-                  geometry="primitive:plane; width:10.0; height:10.0;" 
-                  animation =   "property:position;  from: -4 6 -8;  to:4 6 -8;  dur:5000; easing:easeInOutSine; loop:true; dir:alternate;"
-                  animation__2="property:rotation; to:0 0 360; loop:true; dur:6000; easing:linear;"
-                  material="color:red;">
-        </a-entity>
+      <a-entity id="target_2" 
+                class = "hitable"
+                static-body
+                position = "-4 6 -8"
+                rotation = "0 0 0"
+                scale = "0.1 0.1 0.1"
+                geometry="primitive:plane; width:10.0; height:10.0;" 
+                animation =   "property:position;  from: -4 6 -8;  to:4 6 -8;  dur:5000; easing:easeInOutSine; loop:true; dir:alternate;"
+                animation__2="property:rotation; to:0 0 360; loop:true; dur:6000; easing:linear;"
+                material="color:red;">
+      </a-entity>
 
-        <a-entity id="target_3" 
-                  class = "hitable"
-                  static-body
-                  position = "4 2 -8"
-                  rotation = "0 0 0"
-                  scale = "0.1 0.1 0.1"
-                  geometry="primitive:plane; width:10.0; height:10.0;" 
-                  animation =   "property:position;  from: 4 2 -8;  to:-4 2 -8;  dur:4000; easing:easeInOutSine; loop:true; dir:alternate;"
-                  animation__2=    "property:rotation; to:0 0 360; loop:true; dur:6000; easing:linear;"
-                  material="color:red;">
-        </a-entity>
+      <a-entity id="target_3" 
+                class = "hitable"
+                static-body
+                position = "4 2 -8"
+                rotation = "0 0 0"
+                scale = "0.1 0.1 0.1"
+                geometry="primitive:plane; width:10.0; height:10.0;" 
+                animation =   "property:position;  from: 4 2 -8;  to:-4 2 -8;  dur:4000; easing:easeInOutSine; loop:true; dir:alternate;"
+                animation__2=    "property:rotation; to:0 0 360; loop:true; dur:6000; easing:linear;"
+                material="color:red;">
+      </a-entity>
 
-        <a-entity id="target_4" 
-                  class = "hitable"
-                  static-body
-                  position = "-4 10 -8"
-                  rotation = "0 0 0"
-                  scale = "0.1 0.1 0.1"
-                  geometry="primitive:plane; width:10.0; height:10.0;" 
-                  animation =   "property:position;  from: -4 10 -8;  to:-4 2 -8;  dur:2000; easing:easeInOutSine; loop:true; dir:alternate;"
-                  animation__2=    "property:rotation; to:0 0 360; loop:true; dur:6000; easing:linear;"
-                  material="color:red;">
-        </a-entity>
+      <a-entity id="target_4" 
+                class = "hitable"
+                static-body
+                position = "-4 10 -8"
+                rotation = "0 0 0"
+                scale = "0.1 0.1 0.1"
+                geometry="primitive:plane; width:10.0; height:10.0;" 
+                animation =   "property:position;  from: -4 10 -8;  to:-4 2 -8;  dur:2000; easing:easeInOutSine; loop:true; dir:alternate;"
+                animation__2=    "property:rotation; to:0 0 360; loop:true; dur:6000; easing:linear;"
+                material="color:red;">
+      </a-entity>
 
-        <a-entity id="target_5" 
-                  class = "hitable"
-                  static-body
-                  position = "0 2 -8"
-                  rotation = "0 0 0"
-                  scale = "0.1 0.1 0.1"
-                  geometry="primitive:plane; width:10.0; height:10.0;" 
-                  animation =   "property:position;  from: 0 2 -8;  to:0 10 -8;  dur:3000; easing:easeInOutSine; loop:true; dir:alternate;"
-                  animation__2=    "property:rotation; to:0 0 360; loop:true; dur:6000; easing:linear;"
-                  material="color:red;">
-        </a-entity>
+      <a-entity id="target_5" 
+                class = "hitable"
+                static-body
+                position = "0 2 -8"
+                rotation = "0 0 0"
+                scale = "0.1 0.1 0.1"
+                geometry="primitive:plane; width:10.0; height:10.0;" 
+                animation =   "property:position;  from: 0 2 -8;  to:0 10 -8;  dur:3000; easing:easeInOutSine; loop:true; dir:alternate;"
+                animation__2=    "property:rotation; to:0 0 360; loop:true; dur:6000; easing:linear;"
+                material="color:red;">
+      </a-entity>
 
-        <a-entity id="target_6" 
-                  class = "hitable"
-                  static-body
-                  position = "4 10 -8"
-                  rotation = "0 0 0"
-                  scale = "0.1 0.1 0.1"
-                  geometry="primitive:plane; width:10.0; height:10.0;" 
-                  animation =   "property:position;  from: 4 10 -8;  to:4 2 -8;  dur:4000; easing:easeInOutSine; loop:true; dir:alternate;"
-                  animation__2=    "property:rotation; to:0 0 360; loop:true; dur:6000; easing:linear;"
-                  material="color:red;">
-        </a-entity>
+      <a-entity id="target_6" 
+                class = "hitable"
+                static-body
+                position = "4 10 -8"
+                rotation = "0 0 0"
+                scale = "0.1 0.1 0.1"
+                geometry="primitive:plane; width:10.0; height:10.0;" 
+                animation =   "property:position;  from: 4 10 -8;  to:4 2 -8;  dur:4000; easing:easeInOutSine; loop:true; dir:alternate;"
+                animation__2=    "property:rotation; to:0 0 360; loop:true; dur:6000; easing:linear;"
+                material="color:red;">
+      </a-entity>
 
         <a-entity id="ball_button"
                   static-body
@@ -216,14 +217,15 @@
 
             //Sending over the position of player 1 :) 
             setInterval(function(){
-                socket.emit('givePlayerPosition', document.getElementById("player").getAttribute('position'));
+                socket.emit('givePlayerPosition2', document.getElementById("player").getAttribute('position'));
             }, 1000)  
             
             //Receiving player 2 position, and setting it to player 2
-            socket.on('receive_position2', function(data) {
+            socket.on('receive_position', function(data) {
                 //set player2 position
-                console.log(data);
+                console.log('Receiving player 1 position');
                 document.getElementById("player2").setAttribute('position', {x:data.x, y:data.y, z:data.z});
+                
             
             });
 
@@ -233,7 +235,7 @@
             
             });
             
-           //Receiving player 2 points
+            //Receiving player 2 points
             socket.on('ReceivePlayer2Points', function(data) {
               // checking if player2 won
                   if(data => 3){
@@ -242,20 +244,17 @@
                   if(data <3){
                     const player2_points = document.getElementById('player2_score').setAttribute('text', 'value: Player 2: ' + data);
                   }
-            
             });
 
             //Receiving player 1 points
             socket.on('ReceivePlayer1Points', function(data) {
+                console.log('Player 1 points: ', data);
                 if(data => 3) {
                   const player1_points = document.getElementById('player1_score').setAttribute('text', 'value: Player 1: WON !!!');
                 }
                 if(data <3){
                   const player1_points = document.getElementById('player1_score').setAttribute('text', 'value: Player 1: ' + data);
                 }
-                
-              
-                
             });
           </script>
 

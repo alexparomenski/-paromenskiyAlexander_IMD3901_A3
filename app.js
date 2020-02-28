@@ -17,13 +17,14 @@ app.get('/collaborative2', function(req,res) {
     res.sendFile(__dirname + '/public/collaborative2.html');
 });
 
-app.get('/controller', function(req,res) {
-    res.sendFile(__dirname + '/public/controller.html');
+app.get('/competitive', function(req,res) {
+    res.sendFile(__dirname + '/public/competetive.html');
 });
 
-app.get('/color', function(req,res) {
-    res.sendFile(__dirname + '/public/color.html');
+app.get('/competitive2', function(req,res) {
+    res.sendFile(__dirname + '/public/competetive2.html');
 });
+
 
 //websocket stuff
 socketIO.on('connection', function(socket) {
@@ -36,22 +37,6 @@ socketIO.on('connection', function(socket) {
     //custom events
     //socket = one client
     //socketIO.sockets = all clients
-    socket.on('red', function(data) {
-        console.log('red event heard');
-        socketIO.sockets.emit('color_change', {r:255, g:0, b:0});
-    });
-
-    socket.on('green', function(data) {
-        console.log('green event heard');
-        //socketIO.sockets.emit('color_change', {r:0, g:255, b:0});
-        //socketIO.sockets.emit('load_scene');
-        
-    });
-
-    socket.on('blue', function(data) {
-        console.log('blue event heard');
-        socketIO.sockets.emit('color_change', {r:0, g:0, b:255});
-    });
 
     socket.on('givePlayerPosition', function(data){
         //console.log(data);
@@ -72,6 +57,23 @@ socketIO.on('connection', function(socket) {
         socketIO.sockets.emit('open_door');
         //socketIO.sockets.emit('color_change', {data});
 
+    });
+
+    socket.on('changeColor', function(data){
+        console.log('changing color...');
+        socketIO.sockets.emit('change_color', data);
+
+    });
+
+    socket.on('sendPlayer1Points', function(data){
+        console.log(data);
+        console.log('sending player 1 points.. ')
+        socketIO.sockets.emit("ReceivePlayer1Points",data);
+    });
+
+    socket.on('sendPlayer2Points', function(data){
+        console.log('sending player 2 points.. ')
+        socketIO.sockets.emit("ReceivePlayer2Points",data);
     });
 });
 

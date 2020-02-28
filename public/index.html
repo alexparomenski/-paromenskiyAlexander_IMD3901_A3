@@ -1,15 +1,44 @@
+<!-- Source for this template: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_vertical_menu-->
+
 <!DOCTYPE html>
 <html>
-    <head>
-    </head>
-    <body>
-        <h1>Please choose which page you want to go to :)</h1>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.vertical-menu {
+  width: 200px;
+}
 
-        <!-- some very nice color buttons -->
-        <a href="/collaborative">Collaborative Page</a>
-        <a href="/collaborative2">Collaborative Page2</a>
-        <a href="/competitive.html">Competetive Page</a>
-        <a href="/controller">Controller Page</a>
-        <a href="/color">Color Page</a>
-    </body>
+.vertical-menu a {
+  background-color: #eee;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc;
+}
+
+.vertical-menu a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<h1>Competetive/Collaborative Interactions, for player 2 click second links :)</h1>
+
+<div class="vertical-menu">
+  <a href="" class="active">Home</a>
+  <a href="/collaborative">Collaborative Page</a>
+  <a href="/collaborative2">Collaborative Page2</a>
+  <a href="/competitive.html">Competetive Page</a>
+  <a href="/competitive2.html">Competetive Page2</a>
+</div>
+
+</body>
 </html>
+

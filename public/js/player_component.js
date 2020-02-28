@@ -11,7 +11,7 @@ AFRAME.registerComponent( 'player_component',{
         var worldPosition = new THREE.Vector3();
         Camera.object3D.getWorldPosition(worldPosition);
         //setting the position of the player to the position of the camera
-        document.getElementById("player").setAttribute('position', {x:worldPosition.x, y:0.5, z:worldPosition.z})
+        document.getElementById("player").setAttribute('position', {x:worldPosition.x, y:-0.2, z:worldPosition.z})
         
         //console.log(Player.object3D.position);
         //console.log(Context_AF.el.object3D.position);

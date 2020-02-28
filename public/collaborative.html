@@ -34,54 +34,39 @@
         <!--socket library-->
         <script src="/socket.io/socket.io.js"></script>
         
-        <!--
-            
-
-<a-entity id = "player"
-            wasd-controls
-            position = "0 1.2 2"
-            kinematic-body>
-            <a-entity id = "camera"
-              camera look-controls
-              position = "0 1.2 2">
-              <a-entity cursor= "rayOrigin:mouse;"
-                    position="0 0 -1"
-                    raycaster = "far:20; interval:100; objects:.clickable;">
-                </a-entity>
-            </a-entity>
-        </a-entity>
-            
-          -->
+        <!-- player model-->
+        <a-asset-item crossorigin="anonymous" id="player-obj" src="/assets/models/character.obj"></a-asset-item>
+        <img crossorigin="anonymous" id="player1texture" src="/assets/textures/character1.png">
+        <img crossorigin="anonymous" id="player2texture" src="/assets/textures/character2.png">
 
          
         <a-entity id = "camera" 
               camera look-controls 
-              wasd-controls 
-              position = "0 1.2 2" >
+              position = "0 1.5 2" >
                   <a-entity cursor= "rayOrigin:mouse;"
                         position="0 0 -1"
-                        raycaster = "far:3; interval:100; objects:.clickable;">
+                        raycaster = "far:4; interval:100; objects:.clickable;">
                   </a-entity>
         <a-entity position="0 0 -1" id="attachment" kinematic-body ></a-entity>
         </a-entity>
         
-        <a-box  id = "player"
-                color="#39BB82"
-                width="0.5" height="1.5" depth="0.5"
-                position="0 0 0"
-                material="opacity: 1; transparent: true"
+        <a-entity  id = "player"
+                scale = "0.3 0.3 0.3"
+                obj-model="obj: #player-obj;"
+                material = "src: #player1texture;"
+                position="0 -0.2 0"
                 player_component = ""
                 kinematic-body>
-        </a-box>
+        </a-entity>
 
-        <a-box  id = "player2"
-                color="#39BB82"
-                width="0.5" height="1.5" depth="0.5"
-                position="0 0.5 0"
-                material="opacity: 1; transparent: true"
+        <a-entity  id = "player2"
+                scale = "0.3 0.3 0.3"
+                obj-model="obj: #player-obj;"
+                material = "src: #player2texture;"
+                position="0 -0.2 0"
                 player_component = ""
                 kinematic-body>
-        </a-box>
+        </a-entity>
 
         <a-entity id="plane" 
                   static-body
@@ -142,7 +127,7 @@
                   position="5 0 0"
                   material="opacity: 1; transparent: true"
                   animation =      "property:position;   to:8 0 0;   dur:2700; easing:easeInOutSine; startEvents:open_door;"
-                  animation__2 =   "property:position;   to:5 0 0;   dur:3000; easing:easeInOutSine; startEvents:close_door;"
+                  animation__2 =   "property:position;   to:5 0 0;   dur:1500; easing:easeInOutSine; startEvents:close_door;"
                   animation__3 =   "property:position;   to:8 0 0;   dur:3000; easing:easeInOutSine; startEvents:open_door2;"
                   static-body>
         </a-box>
@@ -154,7 +139,7 @@
                   scale = "0.7 0.7 0.7"
                   material="color:yellow;"
                   position = "-4 -0.2 4" 
-                  sound="src: url(https://cdn.glitch.com/78ee6428-e6d9-48ff-9e15-4c0952abe21f%2FSliding%20Glass%20Door%20Closing%20-%20Sound%20Effect.mp3?v=1582525515246);"
+                  sound="src: url(https://cdn.glitch.com/78ee6428-e6d9-48ff-9e15-4c0952abe21f%2FSliding%20Glass%20Door%20Closing%20-%20Sound%20Effect.mp3?v=1582525515246); volume: 1"
                   button_component = "">
                   
         </a-entity>
@@ -166,6 +151,7 @@
                   rotation = "-90 90 0"
                   material="color:red;"
                   position = "-4.9 1 -4" 
+                  sound="src: url(https://cdn.glitch.com/78ee6428-e6d9-48ff-9e15-4c0952abe21f%2FVictory%20sound%20effect.mp3?v=1582858288660); volume: 1"
                   open_component = "">
                   
         </a-entity>
@@ -178,6 +164,7 @@
                   scale = "0.5 0.5 0.5"
                   material="color:blue;"
                   position = "-2 -0.2 2" 
+                  sound="src: url(https://cdn.glitch.com/78ee6428-e6d9-48ff-9e15-4c0952abe21f%2FRoblox%20Old%20Jumping%20Sound.mp3?v=1582858749946); volume: 0.4"
                   navigate_component = "">
                   
         </a-entity>
@@ -268,6 +255,8 @@
             document.getElementById("door").setAttribute('scale', {x:0, y:0, z:0});
         
         });
+
+        
         
       </script>
       
